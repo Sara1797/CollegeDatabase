@@ -217,7 +217,7 @@ public class StudentProvider extends ContentProvider {
         // If the {@link PetEntry#COLUMN_PET_WEIGHT} key is present,
         // check that the weight value is valid.
         if (values.containsKey(StudentContract.StudentEntry.COLUMN_STUDENT_PHONE_NO)) {
-            Integer phoneNo = values.getAsInteger(StudentContract.StudentEntry.COLUMN_STUDENT_PHONE_NO);
+            Long phoneNo = values.getAsLong(StudentContract.StudentEntry.COLUMN_STUDENT_PHONE_NO);
             if (phoneNo != null && phoneNo < 0) {
                 throw new IllegalArgumentException("Student requires valid phone no");
             }

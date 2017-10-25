@@ -179,9 +179,9 @@ public class EditorActivity extends AppCompatActivity implements
         }
         values.put(StudentEntry.COLUMN_STUDENT_ID, roll);
         values.put(StudentEntry.COLUMN_STUDENT_GENDER, mGender);
-        int phone = 0;
+        long phone = 0;
         if (!TextUtils.isEmpty(phoneNoString)) {
-            phone = Integer.parseInt(phoneNoString);
+            phone = Long.parseLong(phoneNoString);
         }
         values.put(StudentEntry.COLUMN_STUDENT_PHONE_NO, phone);
 
@@ -347,12 +347,12 @@ public class EditorActivity extends AppCompatActivity implements
             String name = cursor.getString(nameColumnIndex);
             int roll = cursor.getInt(idColumnIndex);
             int gender = cursor.getInt(genderColumnIndex);
-            int phoneNo = cursor.getInt(phoneNoColumnIndex);
+            long phoneNo = cursor.getLong(phoneNoColumnIndex);
 
             // Update the views on the screen with the values from the database
             mNameEditText.setText(name);
             mIdEditText.setText(Integer.toString(roll));
-            mPhoneNoEditText.setText(Integer.toString(phoneNo));
+            mPhoneNoEditText.setText(Long.toString(phoneNo));
 
             // Gender is a dropdown spinner, so map the constant value from the database
             // into one of the dropdown options (0 is Unknown, 1 is Male, 2 is Female).
